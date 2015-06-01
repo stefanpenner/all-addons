@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "starting $1"
+wget -Ncq $1 || echo 'failed'
+echo "finished $1"
