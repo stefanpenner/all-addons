@@ -4,4 +4,4 @@ mkdir -p addons
 cd addons
 curl --compressed https://io-builtwithember-addons-data.s3.amazonaws.com/addons.json \
   | jq '.[] | {name: .name, version: .time | to_entries | sort_by(.key)[to_entries | length - 3] | .key} | "http://registry.npmjs.org/" + .name + "/-/" + .name + "-" + .version + ".tgz"' \
-  | xargs wget
+  | xargs wget -Nc
